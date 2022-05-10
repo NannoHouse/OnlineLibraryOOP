@@ -1,5 +1,6 @@
 #include "String.h"
 #include <iostream>
+#include <string>
 String::String()
 {
 	myString = new char[1];
@@ -15,7 +16,6 @@ String::String(const char* word)
 String::String(const String& other)
 {
 	if (this != &other) {
-		// think about this again
 		this->myString = new char[other.getSize() + 1];
 		strcpy_s(myString, other.getSize()+1,other.getSymbols());
 	}
@@ -50,7 +50,7 @@ size_t String::getSize() const
 	}
 	else
 		return 0;
-}
+} // not needed if we use strlen
 
 void String::print() const
 {
@@ -58,8 +58,7 @@ void String::print() const
 	{
 		std::cout << myString;
 	}
-}
-
+} // maybe not needed if we have cout 
 void String::add(const char* str)
 {
 	char* temp = new char[strlen(myString) + strlen(str) + 1];
@@ -94,11 +93,12 @@ bool String::operator==(const String& string) const
 
 bool String::operator!=(const String& string) const
 {
-	if (*this != string)
-	{
-		return true;
-	} else
+	if (*this == string) {
 		return false;
+	}
+	else 
+		return true;
+	
 }
 
 std::ostream& operator<<(std::ostream& out, const String& str)
@@ -109,6 +109,16 @@ std::ostream& operator<<(std::ostream& out, const String& str)
 
 std::istream& operator>>(std::istream& in, String& str)
 {
-	in >> str;
+	char* buffer = new char[1024];
+	//in >> buffer;
+	in.getline(buffer,1024);
+	if (str.myString)
+	{
+		delete str.myString;
+		str.myString = nullptr;
+	}
+	str.myString = new char[strlen(buffer) + 1];
+	strcpy_s(str.myString, strlen(buffer) + 1, buffer);
+	delete[] buffer;
 	return in;
 }

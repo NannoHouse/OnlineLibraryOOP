@@ -11,14 +11,21 @@ private:
 	String ISBN; // ima tireta v nego
 public:
 	Book();
-	// getters and setters
-	void getAutor() const;
-	void getHeader() const;
-	void getShortDescr() const;
-	void getRating() const;
-	void getISBN()const;
+	// getters 
+	String getAutor() const;
+	String getHeader() const;
+	String getShortDescr() const;
+	double getRating() const;
+	String getISBN()const;
+	 // setters
+	void setAutor(const String _autor) ;
+	void setHeader(const String _header) ;
+	void setShortDescr(const String _shortDescr) ;
+	void setRating(double _rating) ;
+	void setISBN(const String _ISBN);
 
-	Book(String ISBN);
+	Book( String _autor, String _header, String _shortDescr,double _rating, String _ISBN);
 
 
 };
+//redefine operator << and >>

@@ -17,6 +17,5 @@ void Library::remove(Book book)
 			library.remove(i);
 			std::cout << "Book was removed!";
 		}
-
 	}
 }

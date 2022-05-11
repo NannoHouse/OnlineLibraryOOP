@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Book.h"
-const int ISBNStart = 9780000000000;
+const long long startISBN = 9780000000000;
+const long long endISBN = 9790000000000;
 unsigned counter = 0;
 Book::Book() {
 	autor = "No autor";
@@ -37,10 +38,10 @@ void Book::validateRating(double numberRating)
 
 void Book::validateISBN(unsigned enteredISBN)
 {
-	if (enteredISBN < ISBNStart || enteredISBN>9790000000000)
+	if (enteredISBN < startISBN || enteredISBN>endISBN)
 	{
 		std::cout << "Invalide ISBN. Set defalt ISBN: " << counter << std::endl;
-		ISBN = ISBNStart + counter;
+		ISBN = startISBN + counter;
 	}
 	else {
 		ISBN = enteredISBN;

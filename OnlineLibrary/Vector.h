@@ -4,8 +4,8 @@ template<class T>
 class Vector
 {
 private:
-    unsigned int vsize;
-    unsigned int vcapacity;
+    size_t vsize;
+    size_t vcapacity;
     T* varr;
 
     // Helper methods used in the big four
@@ -23,7 +23,7 @@ public:
     T& at(int index); // should it be like this
     void add(T element);
     void remove(int index); // redo removing method
-    void resize(int capacity);
+    void resize(size_t capacity);
 
 };
 
@@ -37,7 +37,6 @@ template<class T>
     for (unsigned i = 0; i < vsize; i++)
     {
         varr[i] = other.varr[i];
-
     }
 }
 
@@ -111,7 +110,7 @@ template<class T>
 template<class T>
  void Vector<T>::remove(int index)
 {
-    for (int i = index; i < vsize-1; i++)
+    for (size_t i = index; i < vsize-1; i++)
     {
         varr[i] = varr[i + 1];
     }
@@ -119,7 +118,7 @@ template<class T>
 }
 
 template<class T>
- void Vector<T>::resize(int capacity)
+ void Vector<T>::resize(size_t capacity)
 {
     if (capacity > vcapacity)
     {

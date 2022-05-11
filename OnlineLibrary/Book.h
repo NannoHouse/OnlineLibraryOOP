@@ -7,7 +7,7 @@ private:
 	String header;
 	String shortDescr;
 	double rating;
-	int ISBN;
+	long long ISBN;
 public:
 	Book();
 	Book( String _autor, String _header, String _shortDescr,double _rating, int _ISBN);

@@ -5,6 +5,7 @@ class Library {
 private:
 	Vector<Book> library;
 public:
+
 	void add(Book book)const;
 	void remove(Book book)const;
 	

@@ -52,7 +52,17 @@ void Book::setShortDescr(const String _shortDescr)
 
 void Book::setRating(double _rating)
 {
+	if (_rating<0)
+	{
+		this->rating = 0;
+	}
+	else if (_rating >5)
+	{
+		this->rating = 5;
+	}
+	else {
 	this->rating = _rating;
+	}
 }
 
 void Book::setISBN(const String _ISBN)
@@ -104,7 +114,6 @@ std::ostream& operator<<(std::ostream& out, const Book& book)
 	out << book.getShortDescr() << std::endl;
 	out << book.getRating() << std::endl;
 	out << book.getISBN() << std::endl;
-
 	return out;
 }
 

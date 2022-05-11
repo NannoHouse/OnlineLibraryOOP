@@ -3,6 +3,7 @@
 #include <string>
 #include "String.h"
 #include "Program.h"
+#include "Library.h"
 #include "CommandHelper.h"
 
 int main() {
@@ -16,19 +17,8 @@ int main() {
 	//}
 	// ------- end of password making
 
-
-	//String str("If"), str2(" Antonov");
-	//String str3;
-	//str.add(" Antonov");
-
-	//String result = str + str2;
-	//std::cin >> str3;
-	//std::cout << str3<<std::endl;
-	//std::cout << "fsgvadv" << std::endl;
-	//std::cout << str << std::endl;
-	//std::cout << "fsgvadv" << std::endl;
 	bool isAdmin = false;
-	
+	Library library;
 	Book book1;
 	std::cin >> book1;
 	std::cout << book1;

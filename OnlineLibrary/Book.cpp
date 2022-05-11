@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Book.h"
-const unsigned ISBNStart = 9780000000000;
+const int ISBNStart = 9780000000000;
 unsigned counter = 0;
 Book::Book() {
 	autor = "No autor";
@@ -47,6 +47,15 @@ void Book::validateISBN(unsigned enteredISBN)
 	}
 }
 
+bool Book::operator==(const Book& rightBook) const
+{
+	if (autor == rightBook.autor && header == rightBook.header )
+	{
+		return true;
+	}
+	return false;
+}
+
 
 std::istream& operator>>(std::istream& in, Book& book)
 {
@@ -57,7 +66,6 @@ std::istream& operator>>(std::istream& in, Book& book)
 	std::cout << "Enter book shortDescription : ";
 	in >> book.shortDescr;
 	std::cout << "Enter book rating : ";
-	double _rating ;
 	in >> book.rating;
 	std::cout << "Enter book ISBN : ";
 	in >> book.ISBN;

@@ -13,10 +13,11 @@ public:
 	void executeAdd() {
 		Book newBook;
 		std::cout << "Enter book informating: ";
+		std::cin >> newBook;
 		onlineLibrary.add(newBook);
 	}
 	void removeBook() {
-
+		
 	}
 	//EXECURE REMOVE
 	//EXECURE SORT BY 4 DIFFERENT TYPES

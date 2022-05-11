@@ -13,6 +13,8 @@ public:
 	Book( String _autor, String _header, String _shortDescr,double _rating, int _ISBN);
 	void validateRating(double numberRating);
 	void validateISBN(unsigned enteredISBN);
+	bool operator==(const Book& rightBook) const;
+
 	friend std::istream& operator >> (std::istream& in, Book& book);
 	friend std::ostream& operator << (std::ostream& out,const Book & book);
 

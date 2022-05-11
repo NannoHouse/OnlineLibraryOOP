@@ -6,10 +6,17 @@ void Library::add(Book book)
 {
 		library.add(book);
 }
-/*
+
 void Library::remove(Book book)
-{ //find index of book in arr
-	//save index and go to function
-	library.remove(book);
+{
+	unsigned size = library.getSize();
+	for (unsigned i = 0; i < size; i++)
+	{
+		if (library.at(i) == book)
+		{
+			library.remove(i);
+			std::cout << "Book was removed!";
+		}
+
+	}
 }
-*/

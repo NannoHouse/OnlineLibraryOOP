@@ -24,6 +24,7 @@ public:
     void add(T element);
     void remove(int index); // redo removing method
     void resize(int capacity);
+
 };
 
 template<class T>
@@ -110,9 +111,9 @@ template<class T>
 template<class T>
  void Vector<T>::remove(int index)
 {
-    for (int i = index; i < vsize; i++)
+    for (int i = index; i < vsize-1; i++)
     {
-        varr = varr[i + 1];
+        varr[i] = varr[i + 1];
     }
     vsize--;
 }
@@ -132,3 +133,5 @@ template<class T>
         varr = new_size_array;
     }
 }
+
+ 

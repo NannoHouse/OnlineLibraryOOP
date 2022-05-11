@@ -26,6 +26,7 @@ public:
 
 	Book( String _autor, String _header, String _shortDescr,double _rating, String _ISBN);
 
+	friend std::istream& operator >> (std::istream& in, Book& book);
+	friend std::ostream& operator << (std::ostream& out,const Book & book);
 
 };
-//redefine operator << and >>

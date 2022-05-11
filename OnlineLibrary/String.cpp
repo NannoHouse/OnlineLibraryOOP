@@ -110,7 +110,6 @@ std::ostream& operator<<(std::ostream& out, const String& str)
 std::istream& operator>>(std::istream& in, String& str)
 {
 	char* buffer = new char[1024];
-	//in >> buffer;
 	in.getline(buffer,1024);
 	if (str.myString)
 	{

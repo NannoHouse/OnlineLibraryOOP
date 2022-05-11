@@ -1,10 +1,14 @@
 #include <iostream>
 #include "Book.h"
-Book::Book()
-{
+
+Book::Book() {
+	autor = "No autor";
+	header = "no header";
+	shortDescr = "no description";
+	rating = 0;
+	ISBN = "no ISBN";
 
 }
-
 String Book::getAutor() const
 {
 	return autor;
@@ -29,6 +33,7 @@ String Book::getISBN() const
 {
 	return ISBN;
 }
+
 
 void Book::setAutor(const String _autor)
 {
@@ -65,5 +70,41 @@ Book::Book(String _autor, String _header, String _shortDescr, double _rating, St
 	rating = _rating;
 	ISBN = _ISBN;
 }
-//
+
+std::istream& operator>>(std::istream& in, Book& book)
+{
+	String buffer;
+	std::cout << "Enter book autor : ";
+	in >> buffer;
+	book.setAutor(buffer);
+	std::cout << "Enter book header : ";
+	in >> buffer;
+	book.setHeader(buffer);
+	std::cout << "Enter book shortDescription : ";
+	in >> buffer;
+	book.setShortDescr(buffer);
+
+	std::cout << "Enter book rating : ";
+	double _rating ;
+	in >> _rating;
+	book.setRating(_rating);
+	in.ignore();
+	std::cout << "Enter book ISBN : ";
+	in >> buffer;
+	book.setISBN(buffer);
+	
+	return in;
+}
+
+std::ostream& operator<<(std::ostream& out, const Book& book)
+{
+	out << '\n';
+	out << book.getAutor()<<std::endl;
+	out << book.getHeader() << std::endl;
+	out << book.getShortDescr() << std::endl;
+	out << book.getRating() << std::endl;
+	out << book.getISBN() << std::endl;
+
+	return out;
+}
 

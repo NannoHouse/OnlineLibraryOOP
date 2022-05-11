@@ -22,12 +22,12 @@ public:
     int getCapacity(); // returns the size of the array
     T& at(int index); // should it be like this
     void add(T element);
-    void remove(T index);
+    void remove(int index); // redo removing method
     void resize(int capacity);
 };
 
 template<class T>
-inline void Vector<T>::copy(const Vector<T>& other)
+ void Vector<T>::copy(const Vector<T>& other)
 {
     vsize = other.vsize;
     vcapacity = other.vcapacity;
@@ -41,27 +41,28 @@ inline void Vector<T>::copy(const Vector<T>& other)
 }
 
 template<class T>
-inline void Vector<T>::clear()
+ void Vector<T>::clear()
 {
     delete[] varr;
     varr = nullptr;
 }
 
 template<class T>
-inline Vector<T>::Vector()
+ Vector<T>::Vector()
 {
     vsize = 0;
     vcapacity = DEFAULT_CAPACITY;
+    varr = new T[vcapacity];
 }
 
 template<class T>
-inline Vector<T>::Vector(const Vector<T>& other)
+ Vector<T>::Vector(const Vector<T>& other)
 {
     copy(other);
 }
 
 template<class T>
-inline Vector<T>& Vector<T>::operator=(const Vector<T>& other)
+ Vector<T>& Vector<T>::operator=(const Vector<T>& other)
 {
     if (this != &other)
     {
@@ -72,31 +73,31 @@ inline Vector<T>& Vector<T>::operator=(const Vector<T>& other)
 }
 
 template<class T>
-inline Vector<T>::~Vector()
+ Vector<T>::~Vector()
 {
     clear();
 }
 
 template<class T>
-inline int Vector<T>::getSize()
+ int Vector<T>::getSize()
 {
     return vsize;
 }
 
 template<class T>
-inline int Vector<T>::getCapacity()
+ int Vector<T>::getCapacity()
 {
     return vcapacity;
 }
 
 template<class T>
-inline T& Vector<T>::at(int index)
+ T& Vector<T>::at(int index)
 {
     return varr[index];
 }
 
 template<class T>
-inline void Vector<T>::add(T element)
+ void Vector<T>::add(T element)
 {
     if (vsize >= vcapacity)
     {
@@ -107,9 +108,9 @@ inline void Vector<T>::add(T element)
 }
 
 template<class T>
-inline void Vector<T>::remove(T index)
+ void Vector<T>::remove(int index)
 {
-    for (unsigned i = index; i < vsize; i++)
+    for (int i = index; i < vsize; i++)
     {
         varr = varr[i + 1];
     }
@@ -117,12 +118,12 @@ inline void Vector<T>::remove(T index)
 }
 
 template<class T>
-inline void Vector<T>::resize(int capacity)
+ void Vector<T>::resize(int capacity)
 {
-    if (capacity >vcapacity)
+    if (capacity > vcapacity)
     {
         vcapacity = capacity;
-        T* new_size_array = new T[vcapacity];
+        T* new_size_array = new T[capacity];
         for (unsigned i = 0; i < vcapacity; i++)
         {
             new_size_array[i] = varr[i];

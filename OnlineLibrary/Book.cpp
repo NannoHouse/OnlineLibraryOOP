@@ -1,107 +1,66 @@
 #include <iostream>
 #include "Book.h"
-
+const unsigned ISBNStart = 9780000000000;
+unsigned counter = 0;
 Book::Book() {
 	autor = "No autor";
 	header = "no header";
 	shortDescr = "no description";
 	rating = 0;
-	ISBN = "no ISBN";
+	ISBN = 0;
 
 }
-String Book::getAutor() const
+Book::Book(String _autor, String _header, String _shortDescr, double _rating, int _ISBN)
 {
-	return autor;
-}
-
-String Book::getHeader() const
-{
-	return header;
-}
-
-String Book::getShortDescr() const
-{
-	return shortDescr;
-}
-
-double Book::getRating() const
-{
-	return rating;
-}
-
-String Book::getISBN() const
-{
-	return ISBN;
-}
-
-
-void Book::setAutor(const String _autor)
-{
-	this->autor = _autor;
-}
-
-void Book::setHeader(const String _header)
-{
-	this->header = _header;
-}
-
-void Book::setShortDescr(const String _shortDescr)
-{
-	this->shortDescr = _shortDescr;
-}
-
-void Book::setRating(double _rating)
-{
-	if (_rating<0)
-	{
-		this->rating = 0;
-	}
-	else if (_rating >5)
-	{
-		this->rating = 5;
-	}
-	else {
-	this->rating = _rating;
-	}
-}
-
-void Book::setISBN(const String _ISBN)
-{
-	this->ISBN = _ISBN;
-}
-
-
-
-Book::Book(String _autor, String _header, String _shortDescr, double _rating, String _ISBN)
-{
+	counter++;
 	autor = _autor;
 	header = _header;
 	shortDescr = _shortDescr;
-	rating = _rating;
-	ISBN = _ISBN;
+	validateRating(_rating);
+	validateISBN(_ISBN);
 }
+
+void Book::validateRating(double numberRating)
+{
+	if (numberRating<0)
+	{
+		this->rating = 0;
+	}
+	else if (numberRating>5)
+	{
+		rating = 5;
+	}
+	else {
+		rating = numberRating;
+	}
+}
+
+void Book::validateISBN(unsigned enteredISBN)
+{
+	if (enteredISBN < ISBNStart || enteredISBN>9790000000000)
+	{
+		std::cout << "Invalide ISBN. Set defalt ISBN: " << counter << std::endl;
+		ISBN = ISBNStart + counter;
+	}
+	else {
+		ISBN = enteredISBN;
+	}
+}
+
 
 std::istream& operator>>(std::istream& in, Book& book)
 {
-	String buffer;
 	std::cout << "Enter book autor : ";
-	in >> buffer;
-	book.setAutor(buffer);
+	in >> book.autor;
 	std::cout << "Enter book header : ";
-	in >> buffer;
-	book.setHeader(buffer);
+	in >> book.header;
 	std::cout << "Enter book shortDescription : ";
-	in >> buffer;
-	book.setShortDescr(buffer);
-
+	in >> book.shortDescr;
 	std::cout << "Enter book rating : ";
 	double _rating ;
-	in >> _rating;
-	book.setRating(_rating);
-	in.ignore();
+	in >> book.rating;
 	std::cout << "Enter book ISBN : ";
-	in >> buffer;
-	book.setISBN(buffer);
+	in >> book.ISBN;
 	
 	return in;
 }
@@ -109,11 +68,11 @@ std::istream& operator>>(std::istream& in, Book& book)
 std::ostream& operator<<(std::ostream& out, const Book& book)
 {
 	out << '\n';
-	out << book.getAutor()<<std::endl;
-	out << book.getHeader() << std::endl;
-	out << book.getShortDescr() << std::endl;
-	out << book.getRating() << std::endl;
-	out << book.getISBN() << std::endl;
+	out << book.autor<<std::endl;
+	out << book.header << std::endl;
+	out << book.shortDescr << std::endl;
+	out << book.rating << std::endl;
+	out << book.ISBN << std::endl;
 	return out;
 }
 

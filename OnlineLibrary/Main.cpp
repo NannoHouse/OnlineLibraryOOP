@@ -21,7 +21,8 @@ int main() {
 	Library library;
 	Book book1;
 	std::cin >> book1;
-	std::cout << book1;
+	library.add(book1);
+	//std::cout << book1;
 	/*
 	std::cout << "welcome to our Electronic Library!" << std::endl;
 	Program program;

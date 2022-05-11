@@ -17,8 +17,14 @@ public:
 		onlineLibrary.add(newBook);
 	}
 	void removeBook() {
-		
+		String header, autor;
+		std::cout << "Removing book\n";
+		std::cout << "Please enter book's header and author\n";
+		std::cin >> header >> autor;
+		Book newBook = onlineLibrary.findBookByHeader(header);
+		onlineLibrary.remove(newBook);
 	}
+	
 	//EXECURE REMOVE
 	//EXECURE SORT BY 4 DIFFERENT TYPES
 	//EXECUTE FINDBOOK

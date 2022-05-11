@@ -48,6 +48,17 @@ void Book::validateISBN(unsigned enteredISBN)
 	}
 }
 
+Book& Book::operator=(const Book& other)
+{
+	autor = other.autor;
+	header = other.header;
+	shortDescr = other.shortDescr;
+	rating = other.rating;
+	ISBN = other.ISBN;
+	return *this;
+}
+
+
 bool Book::operator==(const Book& rightBook) const
 {
 	if (autor == rightBook.autor && header == rightBook.header )
@@ -68,8 +79,10 @@ std::istream& operator>>(std::istream& in, Book& book)
 	in >> book.shortDescr;
 	std::cout << "Enter book rating : ";
 	in >> book.rating;
+	in.ignore();
 	std::cout << "Enter book ISBN : ";
 	in >> book.ISBN;
+	in.ignore();
 	
 	return in;
 }
@@ -81,6 +94,7 @@ std::ostream& operator<<(std::ostream& out, const Book& book)
 	out << book.header << std::endl;
 	out << book.shortDescr << std::endl;
 	out << book.rating << std::endl;
+	
 	out << book.ISBN << std::endl;
 	return out;
 }

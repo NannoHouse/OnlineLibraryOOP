@@ -19,9 +19,12 @@ int main() {
 
 	bool isAdmin = false;
 	Library library;
-	Book book1;
+	Book book1, book2;
 	std::cin >> book1;
+	std::cin >> book2;
 	library.add(book1);
+	library.add(book2);
+	library.remove(book1);
 	//std::cout << book1;
 	/*
 	std::cout << "welcome to our Electronic Library!" << std::endl;

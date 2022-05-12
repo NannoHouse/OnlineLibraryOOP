@@ -46,12 +46,12 @@ public:
 		case 3:
 			std::cout << "Please enter ISBN: ";
 			std::cin >> _ISBN; //validate imput
-			//onlineLibrary.findBookByISBN(_ISBN);
+			onlineLibrary.findBookByISBN(_ISBN);
 			break;
 		case 4:
 			std::cout << "Please enter short description : ";
 			std::cin >> imput;
-			//onlineLibrary.findBookByDescription(imput);
+			onlineLibrary.findBookByShortDescription(imput);
 			break;
 		default:"Command not found";
 			break;

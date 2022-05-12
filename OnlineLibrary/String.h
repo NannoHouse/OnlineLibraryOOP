@@ -22,10 +22,7 @@ public:
 	void print() const;
 	void add(const char* str);
 	const char* getSymbols() const;
-
-	//redefine >> / << / + / += / = 
-	String& operator +(const String& other);
-	String& operator +=(const String& other);
+	bool contains( const String& segment)const;
 
 	// bool operators
 	bool operator<(const String& string) const;

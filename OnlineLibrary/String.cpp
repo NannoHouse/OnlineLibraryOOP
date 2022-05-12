@@ -73,6 +73,17 @@ const char* String::getSymbols() const
 	return myString;
 }
 
+bool String::contains( const String& segment) const
+{
+	if (strstr(myString,segment.getSymbols()))
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 bool String::operator<(const String& string) const
 {
 	if (strcmp(this->myString,string.myString)<0)

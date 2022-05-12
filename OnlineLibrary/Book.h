@@ -11,6 +11,12 @@ private:
 public:
 	Book();
 	Book( String _autor, String _header, String _shortDescr,double _rating, int _ISBN);
+	String getAuthor()const;
+	String getHeader()const;
+	String getShortDescription()const;
+	double getRating()const;
+	long long getISBN()const;
+
 	void validateRating(double numberRating);
 	void validateISBN(unsigned enteredISBN);
 	Book& operator =(const Book& other);

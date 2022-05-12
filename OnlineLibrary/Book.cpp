@@ -21,6 +21,31 @@ Book::Book(String _autor, String _header, String _shortDescr, double _rating, in
 	validateISBN(_ISBN);
 }
 
+String Book::getAuthor() const
+{
+	return autor;
+}
+
+String Book::getHeader() const
+{
+	return header;
+}
+
+String Book::getShortDescription() const
+{
+	return shortDescr;
+}
+
+double Book::getRating() const
+{
+	return rating;
+}
+
+long long Book::getISBN() const
+{
+	return ISBN;
+}
+
 void Book::validateRating(double numberRating)
 {
 	if (numberRating<0)

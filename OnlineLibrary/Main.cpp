@@ -24,7 +24,7 @@ int main() {
 	std::cin >> book2;
 	library.add(book1);
 	library.add(book2);
-	library.remove(book1);
+	library.remove(book1.getHeader(), book1.getAuthor(), book1.getISBN());
 	//std::cout << book1;
 	/*
 	std::cout << "welcome to our Electronic Library!" << std::endl;

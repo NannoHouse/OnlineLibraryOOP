@@ -16,15 +16,20 @@ int main() {
 	//	printf("*");
 	//}
 	// ------- end of password making
+	int a;
+	std::cin >> a;
+	std::cout << a<<std::endl;
+	std::cin >> a;
+	std::cout << a << std::endl;
 
-	bool isAdmin = false;
-	Library library;
-	Book book1, book2;
-	std::cin >> book1;
-	std::cin >> book2;
-	library.add(book1);
-	library.add(book2);
-	library.findBookByAuthor("ga4o");
+	//bool isAdmin = false;
+	//Library library;
+	//Book book1, book2;
+	//std::cin >> book1;
+	//std::cin >> book2;
+	//library.add(book1);
+	//library.add(book2);
+	//library.findBookByAuthor("ga4o");
 	//std::cout << book1;
 	/*
 	std::cout << "welcome to our Electronic Library!" << std::endl;

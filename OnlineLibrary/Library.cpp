@@ -21,7 +21,7 @@ void Library::remove(String searchHeader, String searchAuthor, long long isbn)
 	}
 }
 
-void Library::findBookByHeader(String givenHeader)
+void Library::findBookByHeader(String givenHeader) 
 {
 	unsigned size = library.getSize();
 	for (unsigned i = 0; i < size; i++)
@@ -66,5 +66,15 @@ void Library::findBookByShortDescription(String description)
 				std::cout << library.at(i);
 			}
 		}
+}
+
+
+void Library::printLibrary() 
+{
+	unsigned size = library.getSize();
+	for (unsigned i = 0; i < size; i++)
+	{
+		std::cout << library.at(i);
+	}
 }
 

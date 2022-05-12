@@ -6,12 +6,23 @@ class Library {
 private:
 	Vector<Book> library;
 public:
-	void add(Book book); // check if empty
+	void add(Book book);
 	void remove(String searchHeader, String searchAuthor, long long isbn);
-	void findBookByHeader(String givenHeader); // maybe need to do an overload for different types of searchs
+
+	// find functions
+	void findBookByHeader(String givenHeader) ; 
 	void findBookByAuthor(String givenAutor);
 	void findBookByISBN(unsigned long long ISBN);
 	void findBookByShortDescription(String description);
+
+	void sortDescending();
+
+	void sortByHeader();
+	void sortByAuthor();
+	void sortByISBN();
+
+
+	void printLibrary() ;
 	//sort types - 2 main - up and down 
 	// |-> others are 3 based on criteria
 	//printbooklistfine

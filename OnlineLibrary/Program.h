@@ -57,6 +57,27 @@ public:
 			break;
 		}
 	}
+	void executeSort() {
+		std::cout << "Chose way for sorfing: 1- ascending; 2- descending \n";
+		unsigned commandnumber;
+		std::cin >> commandnumber;
+		std::cout << "Chose criteria for sorfing: 1- header; 2- author; 3-ISBN:  \n";
+		std::cin >> commandnumber;
+		switch (commandnumber)
+		{ case 1:
+
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		default: std::cout << "Sorting not executed - error!!!\n";
+			break;
+		}
+	}
+	void executePrint() {
+		onlineLibrary.printLibrary();
+	}
 	//EXECURE SORT BY 4 DIFFERENT TYPES
 	//EXECUTE FINDBOOK
 };

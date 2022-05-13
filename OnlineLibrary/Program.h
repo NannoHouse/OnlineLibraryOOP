@@ -12,22 +12,22 @@ public:
 	}
 	void executeAdd() {
 		Book newBook;
-		std::cout << "Enter book informating: ";
+		std::cout << "Enter book informating: "<<std::endl;
 		std::cin >> newBook;
 		onlineLibrary.add(newBook);
 	}
 	void executeRemoveBook() {
 		String header, autor;
 		long long isbn;
-		std::cout << "Removing book\n";
-		std::cout << "Please enter book's header and author\n";
+		std::cout << "Removing book";
+		std::cout << "Please enter book's header, author and isbn:" << std::endl;
 		std::cin >> header >> autor>>isbn;
 		//Book newBook = onlineLibrary.findBookByHeader(header);
 		//onlineLibrary.remove(newBook);
 		onlineLibrary.remove(header,autor,isbn);
 	}
 	void executeFindBook() {
-		std::cout << "Please choose a way of search : \n 1- by header; 2- by author; 3- by ISBN; 4 - by description";
+		std::cout << "Please choose a way of search : \n 1- by header; 2- by author; 3- by ISBN; 4 - by description"<<std::endl;
 		unsigned int commandnumber;
 		String imput;
 		unsigned long long _ISBN;
@@ -49,7 +49,7 @@ public:
 			onlineLibrary.findBookByISBN(_ISBN);
 			break;
 		case 4:
-			std::cout << "Please enter short description : ";
+			std::cout << "Please enter short description: ";
 			std::cin >> imput;
 			onlineLibrary.findBookByShortDescription(imput);
 			break;
@@ -58,10 +58,10 @@ public:
 		}
 	}
 	void executeSort() {
-		std::cout << "Chose way for sorfing: 1- ascending; 2- descending \n";
+		std::cout << "Chose way for sorfing: 1- ascending; 2- descending" << std::endl;
 		unsigned commandnumber;
 		std::cin >> commandnumber;
-		std::cout << "Chose criteria for sorfing: 1- header; 2- author; 3-ISBN:  \n";
+		std::cout << "Chose criteria for sorfing: 1- header; 2- author; 3-ISBN:" << std::endl;
 		std::cin >> commandnumber;
 		switch (commandnumber)
 		{ case 1:
@@ -71,12 +71,12 @@ public:
 			break;
 		case 3:
 			break;
-		default: std::cout << "Sorting not executed - error!!!\n";
+		default: std::cout << "Sorting not executed - error!!!" << std::endl;
 			break;
 		}
 	}
 	void executePrint() {
-		onlineLibrary.printLibrary();
+		//onlineLibrary.printLibrary();
 	}
 	//EXECURE SORT BY 4 DIFFERENT TYPES
 	//EXECUTE FINDBOOK

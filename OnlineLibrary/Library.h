@@ -24,6 +24,5 @@ public:
 
 	void printLibrary() ;
 	//sort types - 2 main - up and down 
-	// |-> others are 3 based on criteria
-	//printbooklistfine
+	
 };

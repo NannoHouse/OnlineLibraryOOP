@@ -68,6 +68,66 @@ void Library::findBookByShortDescription(String description)
 		}
 }
 
+void Library::sortDescending()
+{
+	unsigned int size = library.getSize();
+	Book temp;
+	for (size_t i = 0; i < size/2; i++)
+	{
+		temp = library.at(i);
+		library.at(i) = library.at(size - i);
+		library.at(size - i) = temp;
+	}
+}
+
+void Library::sortByHeader()
+{
+	 int size = library.getSize();
+	Book temp;
+	for (int i = 0; i < size; i++) {
+		for (int j = i + 1; j < size; j++)
+		{
+			if (strcmp(library.at(j).getHeader().getSymbols(), library.at(i).getHeader().getSymbols())<0) {
+				temp = library.at(i);
+				library.at(i) = library.at(j);
+				library.at(j) = temp;
+			}
+		}
+	}
+}
+
+void Library::sortByAuthor()
+{
+	 int size = library.getSize();
+	Book temp;
+	for (int i = 0; i < size; i++) {
+		for (int j = i + 1; j < size; j++)
+		{
+			if (strcmp(library.at(j).getAuthor().getSymbols(), library.at(i).getAuthor().getSymbols())<0) {
+				temp = library.at(i);
+				library.at(i) = library.at(j);
+				library.at(j) = temp;
+			}
+		}
+	}
+}
+
+void Library::sortByISBN()
+{
+	 int size = library.getSize();
+	Book temp;
+	for (int i = 0; i < size; i++) {
+		for (int j = i + 1; j < size; j++)
+		{
+			if (library.at(j).getISBN()> library.at(i).getISBN()) {
+				temp = library.at(i);
+				library.at(i) = library.at(j);
+				library.at(j) = temp;
+			}
+		}
+	}
+}
+
 
 void Library::printLibrary() 
 {

@@ -61,15 +61,43 @@ public:
 		std::cout << "Chose way for sorfing: 1- ascending; 2- descending" << std::endl;
 		unsigned commandnumber;
 		std::cin >> commandnumber;
-		std::cout << "Chose criteria for sorfing: 1- header; 2- author; 3-ISBN:" << std::endl;
+		bool sortDescending = false;
+		if (commandnumber == 2)
+		{
+			sortDescending = true;
+		}
+		std::cout << "Chose criteria for sorting: 1- header; 2- author; 3-ISBN:" << std::endl;
 		std::cin >> commandnumber;
 		switch (commandnumber)
 		{ case 1:
-
+			if (sortDescending)
+			{
+				onlineLibrary.sortByHeader();
+				onlineLibrary.sortDescending();
+			}
+			else {
+				onlineLibrary.sortByHeader();
+			}
 			break;
 		case 2:
+			if (sortDescending)
+			{
+				onlineLibrary.sortByAuthor();
+				onlineLibrary.sortDescending();
+			}
+			else {
+				onlineLibrary.sortByAuthor();
+			}
 			break;
 		case 3:
+			if (sortDescending)
+			{
+				onlineLibrary.sortByISBN();
+				onlineLibrary.sortDescending();
+			}
+			else {
+				onlineLibrary.sortByISBN();
+			}
 			break;
 		default: std::cout << "Sorting not executed - error!!!" << std::endl;
 			break;

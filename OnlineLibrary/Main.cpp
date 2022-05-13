@@ -5,38 +5,21 @@
 #include "Program.h"
 #include "Library.h"
 #include "CommandHelper.h"
-
+const String PASSWORD = "gerito" ;
+String enterPassword();
+bool verify(String& password);
 int main() {
 	// ------- Password masking link to site - https://www.geeksforgeeks.org/getch-function-in-c-with-examples/
-	//char psw[3];
-	//
-	//for (int i = 0; i < 3; i++)
-	//{
-	//	psw[i] = getch();
-	//	printf("*");
-	//}
+
 	// ------- end of password making
 
-	bool isAdmin = false;
-	Library library;
-	Book book1, book2,book3;
-	std::cin >> book1;
-	std::cin >> book2;
-	std::cin >> book3;
-	library.add(book1);
-	library.add(book2);
-	library.add(book3);
-	library.sortByHeader();
-
-	library.printLibrary();
-	//std::cout << book1;
-	/*
 	std::cout << "welcome to our Electronic Library!" << std::endl;
 	Program program;
 	program.start();
 	char command[32];
 
 	int commandNumber;
+	String input;
 	CommandHelper::printCommands();
 	do {
 		std::cout << "Enter your command: ";
@@ -45,17 +28,55 @@ int main() {
 		switch (commandNumber)
 		{
 		case Add:
-			program.executeAdd(); break;
-		case RemoveBook: break;
-		case SortLibrary: break;
+			input = enterPassword();
+			if (verify(input))
+			{
+				program.executeAdd();
+			}
+			else {
+				std::cout << "You don't have the rights to use this functions\n";
+			} break;
+		case RemoveBook:
+			input = enterPassword();
+			if (verify(input))
+			{
+				program.executeRemoveBook();
+			}
+			else {
+				std::cout << "You don't have the rights to use this functions\n";
+			}
+			break;
+		case SortLibrary:
+			program.executeSort();
+			break;
 		case help: CommandHelper::printCommands(); break;
 		case notFound: std::cout << "Command not found, try again\n"; break;
-		default: break;
 		}
-
 	} while (commandNumber != endProgram);
 
 	DBManager::save();
-	*/
+
 	return 0;
+
 }
+String enterPassword() {
+	char psw[32];
+	std::cout << "Enter password: ";
+	for (int i = 0; i < 6; i++)
+	{
+		psw[i] = _getch();
+		printf("*");
+	}
+	psw[6] = '\0';
+	return psw;
+}
+bool verify(String& password) {
+	if (strcmp(password.getSymbols(),PASSWORD.getSymbols())==0)
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+

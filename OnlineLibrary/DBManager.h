@@ -13,5 +13,6 @@ void DBManager::readLibraryInfoFromDB(Library& books) {
 
 void DBManager::save()
 {
+
 	std::cout << "Successfully saved all the information\n";
 }

@@ -96,6 +96,7 @@ bool Book::operator==(const Book& rightBook) const
 
 std::istream& operator>>(std::istream& in, Book& book)
 {
+	in.ignore();
 	std::cout << "Enter book autor : ";
 	in >> book.autor;
 	std::cout << "Enter book header : ";

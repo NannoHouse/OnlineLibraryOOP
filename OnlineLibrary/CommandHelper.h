@@ -4,6 +4,7 @@
 const int Add = 1;
 const int RemoveBook = 2;
 const int SortLibrary = 3;
+const int FindBook = 4;
 const int endProgram = 5;
 const int help = 6;
 const int notFound = 0;
@@ -27,6 +28,10 @@ int CommandHelper::getCommand(const char* command)
 	{
 		return SortLibrary;
 	}
+	else if (strcmp(command, "FindBook") == 0)
+	{
+		return FindBook;
+	}
 	else if (strcmp(command, "exit") == 0)
 	{
 		return endProgram;
@@ -42,5 +47,5 @@ int CommandHelper::getCommand(const char* command)
 }
 
 void CommandHelper::printCommands() {
-	std::cout << "1.Add - adds a book\n2.Remove a book\n3.Sort Books\n4.Exit \n5. Help\3\n"; 
+	std::cout << "1.Add - adds a book\n2.Remove a book\n3.Sort Books\n4.FindBook \n5. Exit\n6. Help\3\n"; 
 }

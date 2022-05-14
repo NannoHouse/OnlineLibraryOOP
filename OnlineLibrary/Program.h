@@ -62,6 +62,7 @@ public:
 		String imput;
 		unsigned long long _ISBN;
 		std::cin >> commandnumber;
+		std::cin.ignore();
 		switch (commandnumber)
 		{ case 1:
 			std::cout << "Please enter header: ";
@@ -91,6 +92,7 @@ public:
 		std::cout << "\nChose way for sorfing: 1- ascending; 2- descending" << std::endl;
 		unsigned commandnumber;
 		std::cin >> commandnumber;
+		std::cin.ignore();
 		bool sortDescending = false;
 		if (commandnumber == 2)
 		{
@@ -98,6 +100,7 @@ public:
 		}
 		std::cout << "\nChose criteria for sorting: 1- header; 2- author; 3-ISBN:" << std::endl;
 		std::cin >> commandnumber;
+		std::cin.ignore();
 		switch (commandnumber)
 		{ case 1:
 			if (sortDescending)

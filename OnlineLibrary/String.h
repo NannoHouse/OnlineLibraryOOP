@@ -18,13 +18,13 @@ public:
 	void add(const char* str);
 	const char* getSymbols() const;
 	bool contains( const String& segment)const;
-	String toLower(); // needs to return a copy in order not to change header and lose info
+	char* toLower(); // needs to return a copy in order not to change header and lose info
 	char makeLowerCase(char symbol);
-
+	bool compareWithLowerCh(String&other);
 
 	// bool operators
 	bool operator<(const String& string) const;
-	bool operator==(const String& string) const;
+	bool operator==(const String& string)const;
 	bool operator!=(const String& string) const;
 
 	//friend functions

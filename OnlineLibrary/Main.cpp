@@ -44,6 +44,9 @@ int main() {
 				std::cout << "\nYou don't have the rights to use this functions\n";
 			}
 			break;
+		case FindBook:
+			program.executeFindBook();
+			break;
 		case SortLibrary:
 			program.executeSort();
 			break;

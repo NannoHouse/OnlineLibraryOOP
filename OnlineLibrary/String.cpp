@@ -83,14 +83,18 @@ bool String::contains( const String& segment) const
 	}
 }
 
-String String::toLower()
+char* String::toLower()
 {
 	int i = 0;
-	while (myString[i]!= '\0')
+	int size = strlen(myString);
+
+	char* makeMeLower = new char[size + 1];
+	for (int i = 0; i < size; i++)
 	{
-		myString[i] = makeLowerCase(myString[i]);
+		makeMeLower[i] = makeLowerCase(this->myString[i]);
 	}
-	return myString;
+	makeMeLower[size] = '\0';
+	return makeMeLower;
 }
 
 bool String::operator<(const String& string) const
@@ -104,7 +108,7 @@ bool String::operator<(const String& string) const
 
 bool String::operator==(const String& string) const
 {
-	if (strcmp(this->myString,string.myString) == 0)
+	if (strcmp(this->myString, string.myString) == 0)
 	{
 		return true;
 	}
@@ -148,4 +152,18 @@ char String::makeLowerCase(char symbol)
 			return symbol + ('a' - 'A');
 
 		return symbol;
+}
+
+bool String::compareWithLowerCh(String& other)
+{
+	String comparable1 = this->toLower();
+	String comparable2 = other.toLower();
+
+	if (strcmp(comparable1.myString, comparable2.myString) == 0)
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
 }

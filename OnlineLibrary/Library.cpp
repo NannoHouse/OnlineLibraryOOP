@@ -1,5 +1,6 @@
 #include "Library.h"
 #include"Vector.h"
+#include "String.h"
 #include<iostream>
 
 void Library::add(Book& book)
@@ -37,7 +38,7 @@ void Library::findBookByHeader(String& givenHeader)
 	unsigned size = library.getSize();
 	for (unsigned i = 0; i < size; i++)
 	{
-		if (library.at(i).getHeader() == givenHeader)
+		if (library.at(i).getHeader().compareWithLowerCh(givenHeader))
 		{
 			std::cout << library.at(i);
 		}

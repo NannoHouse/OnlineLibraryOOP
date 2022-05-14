@@ -53,7 +53,7 @@ void Library::findBookByAuthor(String& givenAutor)
 	unsigned size = library.getSize();
 	for (unsigned i = 0; i < size; i++)
 	{
-		if (library.at(i).getAuthor() == givenAutor)
+		if (library.at(i).getAuthor().compareWithLowerCh(givenAutor))
 		{
 			std::cout << library.at(i);
 			break;

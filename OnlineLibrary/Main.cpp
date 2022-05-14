@@ -11,18 +11,18 @@ bool verify(String& password);
 const String PASSWORD = "gerito" ;
 
 int main() {
-	std::cout << "welcome to our Electronic Library!\n" << std::endl;
+	std::cout << "Welcome to our Electronic Library!\n" << std::endl;
 	Program program;
-	program.start();
-	char command[32];
+	program.read();
+	char commands[32];
 
 	int commandNumber;
 	String input;
 	CommandHelper::printCommands();
 	do {
 		std::cout << "Enter your command: ";
-		std::cin >> command;
-		commandNumber = CommandHelper::getCommand(command);
+		std::cin >> commands;
+		commandNumber = CommandHelper::getCommand(commands);
 		switch (commandNumber)
 		{
 		case Add:

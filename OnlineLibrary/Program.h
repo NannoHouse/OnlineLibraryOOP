@@ -7,7 +7,7 @@ class Program {
 private:
 	Library onlineLibrary;
 public:
-	void start()
+	void read()
 	{
 		std::ifstream in;
 		in.open("libraryStorage.txt");
@@ -17,7 +17,7 @@ public:
 			Book book;
 			String imput;
 			double number;
-			unsigned long long isdb;
+			unsigned long long isbn;
 			in >> size;
 			in.ignore();
 			for (int i = 0; i < size; i++)
@@ -30,8 +30,8 @@ public:
 				book.setShortDescription(imput);
 				in >> number;
 				book.setRating(number);
-				in >> isdb;
-				book.setISBN(isdb);
+				in >> isbn;
+				book.setISBN(isbn);
 				in.ignore();
 				onlineLibrary.add(book);
 			}
@@ -44,7 +44,7 @@ public:
 	}
 	void executeAdd() {
 		Book newBook;
-		std::cout << "\nEnter book informating: "<<std::endl;
+		std::cout << "\nEnter book informating: " << std::endl;
 		std::cin >> newBook;
 		onlineLibrary.add(newBook);
 	}
@@ -52,11 +52,11 @@ public:
 		String header, autor;
 		long long isbn;
 		std::cout << "\nPlease enter book's header, author and isbn:" << std::endl;
-		std::cin >> header >> autor>>isbn;
-		onlineLibrary.remove(header,autor,isbn);
+		std::cin >> header >> autor >> isbn;
+		onlineLibrary.remove(header, autor, isbn);
 	}
 	void executeFindBook() {
-		std::cout << "\nPlease choose a way of search : \n 1- by header; 2- by author; 3- by ISBN; 4 - by description"<<std::endl;
+		std::cout << "\nPlease choose a way of search : \n 1- by header; 2- by author; 3- by ISBN; 4 - by description" << std::endl;
 
 		unsigned int commandnumber;
 		String imput;
@@ -64,12 +64,13 @@ public:
 
 		do
 		{
-		std::cin >> commandnumber;
-		} while (commandnumber !=1 && commandnumber!=2 && commandnumber!=3 && commandnumber !=4);
+			std::cin >> commandnumber;
+		} while (commandnumber != 1 && commandnumber != 2 && commandnumber != 3 && commandnumber != 4);
 		std::cin.ignore();
 
 		switch (commandnumber)
-		{ case 1:
+		{
+		case 1:
 			std::cout << "Please enter header: ";
 			std::cin >> imput;
 			onlineLibrary.findBookByHeader(imput);
@@ -97,10 +98,10 @@ public:
 
 		std::cout << "\nChose way for sorfing: 1- ascending; 2- descending" << std::endl;
 		unsigned commandnumber;
-		 do
+		do
 		{
-			 std::cin >> commandnumber;
-		} while (commandnumber != 1 && commandnumber !=2);
+			std::cin >> commandnumber;
+		} while (commandnumber != 1 && commandnumber != 2);
 		std::cin.ignore();
 		bool sortDescending = false;
 		if (commandnumber == 2)
@@ -112,10 +113,11 @@ public:
 		do
 		{
 			std::cin >> commandnumber;
-		} while (commandnumber !=1 && commandnumber != 2 && commandnumber!=3);
+		} while (commandnumber != 1 && commandnumber != 2 && commandnumber != 3);
 		std::cin.ignore();
 		switch (commandnumber)
-		{ case 1:
+		{
+		case 1:
 			if (sortDescending)
 			{
 				onlineLibrary.sortByHeader();
@@ -164,7 +166,7 @@ public:
 		if (out)
 		{
 			int size = onlineLibrary.getSize();
-			out << size<<std::endl;
+			out << size << std::endl;
 			for (int i = 0; i < size; i++)
 			{
 				out << onlineLibrary.getBookAtIndex(i);
@@ -177,4 +179,5 @@ public:
 
 		std::cout << "Successfully saved all the information\n";
 	}
+
 };

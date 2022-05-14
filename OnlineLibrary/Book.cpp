@@ -58,33 +58,6 @@ void Book::setISBN(unsigned long long _ISBN)
 	ISBN = _ISBN;
 }
 
-//extra functions
-void Book::validateRating(double numberRating)
-{
-	if (numberRating<0)
-	{
-		this->rating = 0;
-	}
-	else if (numberRating>5)
-	{
-		rating = 5;
-	}
-	else {
-		rating = numberRating;
-	}
-}
-
-void Book::validateISBN(unsigned long long enteredISBN)
-{
-	if (enteredISBN < 0)
-	{
-		std::cout << "Invalide ISBN. Set defalt ISBN: " << std::endl;
-	}
-	else {
-		ISBN = enteredISBN;
-	}
-}
-
 // operators
 Book& Book::operator=(const Book& other)
 {
@@ -127,7 +100,6 @@ std::istream& operator>>(std::istream& in, Book& book)
 	
 	return in;
 }
-
 std::ostream& operator<<(std::ostream& out, const Book& book)
 {
 	out << book.autor<<std::endl;

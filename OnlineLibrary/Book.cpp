@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Book.h"
-const long long startISBN = 9780000000000;
-const long long endISBN = 9790000000000;
 unsigned counter = 0;
+
 Book::Book() {
 	autor = "No autor";
 	header = "no header";
@@ -19,6 +18,7 @@ Book::Book(String _autor, String _header, String _shortDescr, double _rating, in
 	shortDescr = _shortDescr;
 	validateRating(_rating);
 	validateISBN(_ISBN);
+
 }
 
 String Book::getAuthor() const
@@ -34,6 +34,11 @@ String Book::getHeader() const
 String Book::getShortDescription() const
 {
 	return shortDescr;
+}
+
+String Book::getFilePlacement() const
+{
+	return filePlacement;
 }
 
 double Book::getRating() const
@@ -63,10 +68,9 @@ void Book::validateRating(double numberRating)
 
 void Book::validateISBN(unsigned enteredISBN)
 {
-	if (enteredISBN < startISBN || enteredISBN>endISBN)
+	if (enteredISBN < 0)
 	{
 		std::cout << "Invalide ISBN. Set defalt ISBN: " << counter << std::endl;
-		ISBN = startISBN + counter;
 	}
 	else {
 		ISBN = enteredISBN;

@@ -1,18 +1,22 @@
 #pragma once
 #include "Library.h"
-#include"DBManager.h"
 #include "Book.h"
+#include <fstream>
 class Program {
 private:
 	Library onlineLibrary;
 public:
+	Library& getLibrary()  {
+		return onlineLibrary;
+	}
 	void start()
 	{
-		DBManager::readLibraryInfoFromDB(onlineLibrary);
+
+		std::cout << "We're ver the files\n";
 	}
 	void executeAdd() {
 		Book newBook;
-		std::cout << "Enter book informating: "<<std::endl;
+		std::cout << "\nEnter book informating: "<<std::endl;
 		std::cin >> newBook;
 		onlineLibrary.add(newBook);
 	}
@@ -22,12 +26,10 @@ public:
 		std::cout << "Removing book";
 		std::cout << "Please enter book's header, author and isbn:" << std::endl;
 		std::cin >> header >> autor>>isbn;
-		//Book newBook = onlineLibrary.findBookByHeader(header);
-		//onlineLibrary.remove(newBook);
 		onlineLibrary.remove(header,autor,isbn);
 	}
 	void executeFindBook() {
-		std::cout << "Please choose a way of search : \n 1- by header; 2- by author; 3- by ISBN; 4 - by description"<<std::endl;
+		std::cout << "\nPlease choose a way of search : \n 1- by header; 2- by author; 3- by ISBN; 4 - by description"<<std::endl;
 		unsigned int commandnumber;
 		String imput;
 		unsigned long long _ISBN;
@@ -58,7 +60,7 @@ public:
 		}
 	}
 	void executeSort() {
-		std::cout << "Chose way for sorfing: 1- ascending; 2- descending" << std::endl;
+		std::cout << "\nChose way for sorfing: 1- ascending; 2- descending" << std::endl;
 		unsigned commandnumber;
 		std::cin >> commandnumber;
 		bool sortDescending = false;
@@ -66,7 +68,7 @@ public:
 		{
 			sortDescending = true;
 		}
-		std::cout << "Chose criteria for sorting: 1- header; 2- author; 3-ISBN:" << std::endl;
+		std::cout << "\nChose criteria for sorting: 1- header; 2- author; 3-ISBN:" << std::endl;
 		std::cin >> commandnumber;
 		switch (commandnumber)
 		{ case 1:
@@ -105,5 +107,23 @@ public:
 	}
 	void executePrint() {
 		onlineLibrary.printLibrary();
+	}
+	void Save(Library& onlineLibrary) {
+		std::ofstream out;
+		out.open("libraryStorage.txt");
+		if (out)
+		{
+			int size = onlineLibrary.getSize();
+			for (int i = 0; i < size; i++)
+			{
+				out << onlineLibrary.getBookAtIndex(i);
+			}
+		}
+		else {
+			std::cout << "An error occured while opening the files!" << std::endl;
+		}
+		out.close();
+
+		std::cout << "Successfully saved all the information\n";
 	}
 };

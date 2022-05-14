@@ -22,6 +22,16 @@ void Library::remove(String searchHeader, String searchAuthor, long long isbn)
 	}
 }
 
+int Library::getSize() 
+{
+	return library.getSize();
+}
+
+Book& Library::getBookAtIndex(int index)
+{
+	return library.at(index);
+}
+
 void Library::findBookByHeader(String& givenHeader) 
 {
 	unsigned size = library.getSize();

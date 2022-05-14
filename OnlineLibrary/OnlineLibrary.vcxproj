@@ -147,7 +147,6 @@
   <ItemGroup>
     <ClInclude Include="Book.h" />
     <ClInclude Include="CommandHelper.h" />
-    <ClInclude Include="DBManager.h" />
     <ClInclude Include="Library.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="String.h" />

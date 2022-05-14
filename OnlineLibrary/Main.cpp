@@ -5,15 +5,13 @@
 #include "Program.h"
 #include "Library.h"
 #include "CommandHelper.h"
-const String PASSWORD = "gerito" ;
 String enterPassword();
 bool verify(String& password);
+
+const String PASSWORD = "gerito" ;
+
 int main() {
-	// ------- Password masking link to site - https://www.geeksforgeeks.org/getch-function-in-c-with-examples/
-
-	// ------- end of password making
-
-	std::cout << "welcome to our Electronic Library!" << std::endl;
+	std::cout << "welcome to our Electronic Library!\n" << std::endl;
 	Program program;
 	program.start();
 	char command[32];
@@ -53,9 +51,7 @@ int main() {
 		case notFound: std::cout << "Command not found, try again\n"; break;
 		}
 	} while (commandNumber != endProgram);
-
-	DBManager::save();
-
+	program.Save(program.getLibrary());
 	return 0;
 
 }

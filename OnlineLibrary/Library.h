@@ -8,7 +8,8 @@ private:
 public:
 	void add(Book book);
 	void remove(String searchHeader, String searchAuthor, long long isbn);
-
+	int getSize();
+	Book& getBookAtIndex(int index) ;
 	// find functions
 	void findBookByHeader(String& givenHeader); 
 	void findBookByAuthor(String& givenAutor);
@@ -20,6 +21,6 @@ public:
 	void sortByAuthor();
 	void sortByISBN();
 
-	void printLibrary() ;
+	void printLibrary();
 	
 };

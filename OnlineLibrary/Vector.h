@@ -20,7 +20,7 @@ public:
 
     int getSize(); // number of elements in array -> how much of its memory we use
     int getCapacity(); // returns the size of the array
-    T& at(int index); // should it be like this
+    T& at(int index); 
     void add(T element);
     void remove(int index); // redo removing method
     void resize(size_t capacity);

@@ -6,6 +6,7 @@ private:
 	String autor;
 	String header;
 	String shortDescr;
+	String filePlacement;
 	double rating;
 	long long ISBN;
 public:
@@ -14,6 +15,7 @@ public:
 	String getAuthor()const;
 	String getHeader()const;
 	String getShortDescription()const;
+	String getFilePlacement()const;
 	double getRating()const;
 	long long getISBN()const;
 

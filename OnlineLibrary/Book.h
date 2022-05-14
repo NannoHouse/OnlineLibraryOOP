@@ -14,7 +14,6 @@ public:
 	String getAuthor()const;
 	String getHeader()const;
 	String getShortDescription()const;
-	String getFilePlacement()const;
 	double getRating()const;
 	unsigned long long getISBN()const;
 	void setAuthor(String _author);

@@ -6,8 +6,8 @@ class Library {
 private:
 	Vector<Book> library;
 public:
-	void add(Book book);
-	void remove(String searchHeader, String searchAuthor, long long isbn);
+	void add(Book& book);
+	void remove(String& searchHeader, String& searchAuthor, long long& isbn);
 	int getSize();
 	Book& getBookAtIndex(int index) ;
 	// find functions

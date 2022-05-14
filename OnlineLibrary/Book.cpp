@@ -1,27 +1,10 @@
 #include <iostream>
 #include "Book.h"
-unsigned counter = 0;
 
-Book::Book() {
-	autor = "No autor";
-	header = "no header";
-	shortDescr = "no description";
-	rating = 0;
-	ISBN = 0;
-
-}
+Book::Book(): autor("no author"), header("no header"), shortDescr("nmo description"), rating(0), ISBN(0) {}
 Book::Book(String _autor, String _header, String _shortDescr, double _rating, unsigned long long _ISBN)
-{
-	counter++;
-	autor = _autor;
-	header = _header;
-	shortDescr = _shortDescr;
-	rating = _rating;
-	ISBN = _ISBN;
-	//validateRating(_rating);
-	//validateISBN(_ISBN);
-
-}
+: autor(_autor), header(_header), shortDescr(_shortDescr), rating(_rating), ISBN(_ISBN)
+{}
 
 String Book::getAuthor() const
 {
@@ -36,11 +19,6 @@ String Book::getHeader() const
 String Book::getShortDescription() const
 {
 	return shortDescr;
-}
-
-String Book::getFilePlacement() const
-{
-	return filePlacement;
 }
 
 double Book::getRating() const
@@ -97,7 +75,7 @@ void Book::validateISBN(unsigned long long enteredISBN)
 {
 	if (enteredISBN < 0)
 	{
-		std::cout << "Invalide ISBN. Set defalt ISBN: " << counter << std::endl;
+		std::cout << "Invalide ISBN. Set defalt ISBN: " << std::endl;
 	}
 	else {
 		ISBN = enteredISBN;
@@ -106,11 +84,14 @@ void Book::validateISBN(unsigned long long enteredISBN)
 
 Book& Book::operator=(const Book& other)
 {
-	autor = other.autor;
-	header = other.header;
-	shortDescr = other.shortDescr;
-	rating = other.rating;
-	ISBN = other.ISBN;
+	if (this != &other)
+	{
+		autor = other.autor;
+		header = other.header;
+		shortDescr = other.shortDescr;
+		rating = other.rating;
+		ISBN = other.ISBN;
+	}
 	return *this;
 }
 
@@ -153,14 +134,5 @@ std::ostream& operator<<(std::ostream& out, const Book& book)
 	
 	out << book.ISBN << std::endl;
 	return out;
-}
-
-void test(double numberRating)
-{
-}
-
-bool test1()
-{
-	return false;
 }
 

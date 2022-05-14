@@ -6,19 +6,20 @@ private:
 	char* myString;
 public:
 	// big_4
-	String();
-	String(const char* word);
+	//String();
+	String(const char* word = "\0");
 	String(const String& other);
 	String& operator =(const String& other);
 	~String();
 
-	// functions - add, getlength
+	// functions
 	size_t getSize() const;
 	void print() const;
 	void add(const char* str);
 	const char* getSymbols() const;
 	bool contains( const String& segment)const;
-	String toLower();
+	String toLower(); // needs to return a copy in order not to change header and lose info
+	char makeLowerCase(char symbol);
 
 
 	// bool operators
@@ -31,5 +32,4 @@ public:
 	friend std::istream& operator >> (std::istream& in, String& str);
 
 };
-char toLower(char symbol);
 

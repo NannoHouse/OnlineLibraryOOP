@@ -2,13 +2,13 @@
 #include"Vector.h"
 #include<iostream>
 
-void Library::add(Book book)
+void Library::add(Book& book)
 {
 		library.add(book);
 		std::cout << "Added"<<std::endl;
 }
 
-void Library::remove(String searchHeader, String searchAuthor, long long isbn)
+void Library::remove(String& searchHeader, String &searchAuthor, long long& isbn)
 {
 	unsigned size = library.getSize();
 	for (unsigned i = 0; i < size; i++)
@@ -37,7 +37,7 @@ void Library::findBookByHeader(String& givenHeader)
 	unsigned size = library.getSize();
 	for (unsigned i = 0; i < size; i++)
 	{
-		if (library.at(i).getHeader().toLower() == givenHeader.toLower())
+		if (library.at(i).getHeader() == givenHeader)
 		{
 			std::cout << library.at(i);
 		}

@@ -21,7 +21,7 @@ public:
     int getSize(); // number of elements in array -> how much of its memory we use
     int getCapacity(); // returns the size of the array
     T& at(int index); 
-    void add(T element);
+    void add(const T& element);
     void remove(int index); // redo removing method
     void resize(size_t capacity);
 
@@ -97,7 +97,7 @@ template<class T>
 }
 
 template<class T>
- void Vector<T>::add(T element)
+ void Vector<T>::add(const T& element)
 {
     if (vsize >= vcapacity)
     {
@@ -120,17 +120,14 @@ template<class T>
 template<class T>
  void Vector<T>::resize(size_t capacity)
 {
-    if (capacity > vcapacity)
+    T* new_size_array = new T[capacity];
+    for (unsigned i = 0; i < vcapacity; i++)
     {
-        vcapacity = capacity;
-        T* new_size_array = new T[capacity];
-        for (unsigned i = 0; i < vcapacity; i++)
-        {
-            new_size_array[i] = varr[i];
-        }
-        delete[] varr;
-        varr = new_size_array;
+        new_size_array[i] = varr[i];
     }
+    delete[] varr;
+    vcapacity = capacity;
+    varr = new_size_array;
 }
 
  

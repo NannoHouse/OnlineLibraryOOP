@@ -1,11 +1,11 @@
 #include "String.h"
 #include <iostream>
 #include <string>
-String::String()
-{
-	myString = new char[1];
-	myString[0] = '\0';
-}
+//String::String()
+//{
+//	myString = new char[1];
+//	myString[0] = '\0';
+//}
 
 String::String(const char* word)
 {
@@ -15,21 +15,20 @@ String::String(const char* word)
 
 String::String(const String& other)
 {
-	if (this != &other) {
+//	if (this != &other) {
 		this->myString = new char[other.getSize() + 1];
 		strcpy_s(myString, other.getSize()+1,other.getSymbols());
-	}
-	else {
-
-		this->myString = nullptr;
-	}
+//		this->myString = nullptr;
 }
 
 String& String::operator=(const String& other)
 {
 	if (this != &other)
-	{
-		delete[] myString;
+	{	
+		if (myString != nullptr)
+		{
+			delete[] myString;
+		}
 		myString = new char[strlen(other.getSymbols()) + 1];
 		strcpy_s(myString, other.getSize()+1, other.getSymbols());
 	}
@@ -89,7 +88,7 @@ String String::toLower()
 	int i = 0;
 	while (myString[i]!= '\0')
 	{
-		makeLowerCase(myString[i]);
+		myString[i] = makeLowerCase(myString[i]);
 	}
 	return myString;
 }
@@ -105,7 +104,7 @@ bool String::operator<(const String& string) const
 
 bool String::operator==(const String& string) const
 {
-	if (strcmp(this->myString,string.myString) ==0)
+	if (strcmp(this->myString,string.myString) == 0)
 	{
 		return true;
 	}
@@ -143,7 +142,7 @@ std::istream& operator>>(std::istream& in, String& str)
 	return in;
 }
 
-char makeLowerCase(char symbol)
+char String::makeLowerCase(char symbol)
 {
 		if (symbol >= 'A' && symbol <= 'Z')
 			return symbol + ('a' - 'A');

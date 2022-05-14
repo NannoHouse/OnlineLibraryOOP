@@ -15,15 +15,15 @@ public:
 };
 int CommandHelper::getCommand(const char* command)
 {
-	if (strcmp(command, "add") == 0)
+	if (strcmp(command, "Add") == 0)
 	{
 		return Add;
 	}
-	else if (strcmp(command, "remove") == 0)
+	else if (strcmp(command, "Remove") == 0)
 	{
 		return RemoveBook;
 	}
-	else if (strcmp(command, "sortBooks") == 0)
+	else if (strcmp(command, "Sort Books") == 0)
 	{
 		return SortLibrary;
 	}
@@ -42,5 +42,5 @@ int CommandHelper::getCommand(const char* command)
 }
 
 void CommandHelper::printCommands() {
-	std::cout << "1.Add - adds a book\n2.Remove a book\n3.Sort Library books\n4.Exit program.\n5.Help\3\n"; 
+	std::cout << "1.Add - adds a book\n2.Remove a book\n3.Sort Books\n4.Exit \n5. Help\3\n"; 
 }

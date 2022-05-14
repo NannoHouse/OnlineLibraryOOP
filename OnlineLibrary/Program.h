@@ -46,7 +46,13 @@ public:
 		Book newBook;
 		std::cout << "\nEnter book informating: " << std::endl;
 		std::cin >> newBook;
+		if (validateISBN(newBook.getISBN()))
+		{
 		onlineLibrary.add(newBook);
+		}
+		else {
+			std::cout << "This isbn Already exists! \nYour book won't be added!\n";
+		}
 	}
 	void executeRemoveBook() {
 		String header, autor;
@@ -179,5 +185,15 @@ public:
 
 		std::cout << "Successfully saved all the information\n";
 	}
-
+	bool validateISBN(unsigned long long isbn) {
+		int size = onlineLibrary.getSize();
+		for (int i = 0; i < size; i++)
+		{
+			if (onlineLibrary.getBookAtIndex(i).getISBN() == isbn)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 };

@@ -22,5 +22,5 @@ public:
 	void sortByISBN();
 
 	void printLibrary();
-	
 };
+

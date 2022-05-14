@@ -49,6 +49,7 @@ public:
 		if (validateISBN(newBook.getISBN()))
 		{
 		onlineLibrary.add(newBook);
+		std::cout << "Added!" << std::endl;
 		}
 		else {
 			std::cout << "This isbn Already exists! \nYour book won't be added!\n";
@@ -185,7 +186,7 @@ public:
 
 		std::cout << "Successfully saved all the information\n";
 	}
-	bool validateISBN(unsigned long long isbn) {
+	bool validateISBN( unsigned long long isbn) {
 		int size = onlineLibrary.getSize();
 		for (int i = 0; i < size; i++)
 		{
@@ -197,3 +198,4 @@ public:
 		return true;
 	}
 };
+

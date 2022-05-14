@@ -6,7 +6,6 @@
 void Library::add(Book& book)
 {
 		library.add(book);
-		std::cout << "Added"<<std::endl;
 }
 
 void Library::remove(String& searchHeader, String &searchAuthor, long long& isbn)
@@ -158,5 +157,4 @@ void Library::printLibrary()
 		std::cout << library.at(i);
 	}
 }
-
 

@@ -10,7 +10,7 @@ void Library::add(Book& book)
 }
 
 void Library::remove(String& searchHeader, String &searchAuthor, long long& isbn)
-{
+{	
 	unsigned size = library.getSize();
 	for (unsigned i = 0; i < size; i++)
 	{
@@ -21,6 +21,7 @@ void Library::remove(String& searchHeader, String &searchAuthor, long long& isbn
 			break;
 		}
 	}
+	std::cout << "Book was not found" << std::endl;
 }
 
 int Library::getSize() 
@@ -41,8 +42,10 @@ void Library::findBookByHeader(String& givenHeader)
 		if (library.at(i).getHeader().compareWithLowerCh(givenHeader))
 		{
 			std::cout << library.at(i);
+			break;
 		}
 	}
+	std::cout << "Book with this header was not found" << std::endl;
 }
 
 void Library::findBookByAuthor(String& givenAutor)
@@ -53,8 +56,11 @@ void Library::findBookByAuthor(String& givenAutor)
 		if (library.at(i).getAuthor() == givenAutor)
 		{
 			std::cout << library.at(i);
+			break;
 		}
 	}
+	std::cout << "Book with this author was not found" << std::endl;
+
 }
 
 void Library::findBookByISBN(unsigned long long& ISBN)
@@ -65,8 +71,10 @@ void Library::findBookByISBN(unsigned long long& ISBN)
 			if (library.at(i).getISBN() == ISBN)
 			{
 				std::cout << library.at(i);
+				break;
 			}
 		}
+		std::cout << "Book with this ISBN was not found" << std::endl;
 }
 
 void Library::findBookByShortDescription(String& description)
@@ -76,8 +84,10 @@ void Library::findBookByShortDescription(String& description)
 			if (library.at(i).getShortDescription().contains(description))
 			{
 				std::cout << library.at(i);
+				break;
 			}
 		}
+		std::cout << "Book with this description was not found" << std::endl;
 }
 
 void Library::sortDescending()

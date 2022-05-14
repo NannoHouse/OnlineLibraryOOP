@@ -51,18 +51,23 @@ public:
 	void executeRemoveBook() {
 		String header, autor;
 		long long isbn;
-		std::cout << "Removing book";
-		std::cout << "Please enter book's header, author and isbn:" << std::endl;
+		std::cout << "\nPlease enter book's header, author and isbn:" << std::endl;
 		std::cin >> header >> autor>>isbn;
 		onlineLibrary.remove(header,autor,isbn);
 	}
 	void executeFindBook() {
 		std::cout << "\nPlease choose a way of search : \n 1- by header; 2- by author; 3- by ISBN; 4 - by description"<<std::endl;
+
 		unsigned int commandnumber;
 		String imput;
 		unsigned long long _ISBN;
+
+		do
+		{
 		std::cin >> commandnumber;
+		} while (commandnumber !=1 && commandnumber!=2 && commandnumber!=3 && commandnumber !=4);
 		std::cin.ignore();
+
 		switch (commandnumber)
 		{ case 1:
 			std::cout << "Please enter header: ";
@@ -89,17 +94,25 @@ public:
 		}
 	}
 	void executeSort() {
+
 		std::cout << "\nChose way for sorfing: 1- ascending; 2- descending" << std::endl;
 		unsigned commandnumber;
-		std::cin >> commandnumber;
+		 do
+		{
+			 std::cin >> commandnumber;
+		} while (commandnumber != 1 && commandnumber !=2);
 		std::cin.ignore();
 		bool sortDescending = false;
 		if (commandnumber == 2)
 		{
 			sortDescending = true;
 		}
+
 		std::cout << "\nChose criteria for sorting: 1- header; 2- author; 3-ISBN:" << std::endl;
-		std::cin >> commandnumber;
+		do
+		{
+			std::cin >> commandnumber;
+		} while (commandnumber !=1 && commandnumber != 2 && commandnumber!=3);
 		std::cin.ignore();
 		switch (commandnumber)
 		{ case 1:

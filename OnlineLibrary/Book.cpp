@@ -6,6 +6,8 @@ Book::Book(String _autor, String _header, String _shortDescr, double _rating, un
 : autor(_autor), header(_header), shortDescr(_shortDescr), rating(_rating), ISBN(_ISBN)
 {}
 
+//getters and setters
+
 String Book::getAuthor() const
 {
 	return autor;
@@ -48,14 +50,15 @@ void Book::setShortDescription(String _shortDescr)
 
 void Book::setRating(double _rating)
 {
-	validateRating(_rating);
+	rating = _rating;
 }
 
 void Book::setISBN(unsigned long long _ISBN)
 {
-	validateISBN(_ISBN);
+	ISBN = _ISBN;
 }
 
+//extra functions
 void Book::validateRating(double numberRating)
 {
 	if (numberRating<0)
@@ -82,6 +85,7 @@ void Book::validateISBN(unsigned long long enteredISBN)
 	}
 }
 
+// operators
 Book& Book::operator=(const Book& other)
 {
 	if (this != &other)
@@ -95,7 +99,6 @@ Book& Book::operator=(const Book& other)
 	return *this;
 }
 
-
 bool Book::operator==(const Book& rightBook) const
 {
 	if (autor == rightBook.autor && header == rightBook.header )
@@ -105,7 +108,7 @@ bool Book::operator==(const Book& rightBook) const
 	return false;
 }
 
-
+//operators for stream
 std::istream& operator>>(std::istream& in, Book& book)
 {
 	//in.ignore();
@@ -131,7 +134,6 @@ std::ostream& operator<<(std::ostream& out, const Book& book)
 	out << book.header << std::endl;
 	out << book.shortDescr << std::endl;
 	out << book.rating << std::endl;
-	
 	out << book.ISBN << std::endl;
 	return out;
 }

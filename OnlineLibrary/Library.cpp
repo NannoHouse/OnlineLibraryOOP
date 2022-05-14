@@ -131,7 +131,7 @@ void Library::sortByISBN()
 	for (int i = 0; i < size; i++) {
 		for (int j = i + 1; j < size; j++)
 		{
-			if (library.at(j).getISBN()> library.at(i).getISBN()) {
+			if (library.at(j).getISBN()< library.at(i).getISBN()) {
 				temp = library.at(i);
 				library.at(i) = library.at(j);
 				library.at(j) = temp;

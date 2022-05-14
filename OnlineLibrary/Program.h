@@ -107,9 +107,11 @@ public:
 			{
 				onlineLibrary.sortByHeader();
 				onlineLibrary.sortDescending();
+				onlineLibrary.printLibrary();
 			}
 			else {
 				onlineLibrary.sortByHeader();
+				onlineLibrary.printLibrary();
 			}
 			break;
 		case 2:
@@ -117,9 +119,11 @@ public:
 			{
 				onlineLibrary.sortByAuthor();
 				onlineLibrary.sortDescending();
+				onlineLibrary.printLibrary();
 			}
 			else {
 				onlineLibrary.sortByAuthor();
+				onlineLibrary.printLibrary();
 			}
 			break;
 		case 3:
@@ -127,9 +131,11 @@ public:
 			{
 				onlineLibrary.sortByISBN();
 				onlineLibrary.sortDescending();
+				onlineLibrary.printLibrary();
 			}
 			else {
 				onlineLibrary.sortByISBN();
+				onlineLibrary.printLibrary();
 			}
 			break;
 		default: std::cout << "Sorting not executed - error!!!" << std::endl;

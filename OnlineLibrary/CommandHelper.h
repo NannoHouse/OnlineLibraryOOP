@@ -24,7 +24,7 @@ int CommandHelper::getCommand(const char* command)
 	{
 		return RemoveBook;
 	}
-	else if (strcmp(command, "Sort Books") == 0)
+	else if (strcmp(command, "SortBooks") == 0)
 	{
 		return SortLibrary;
 	}

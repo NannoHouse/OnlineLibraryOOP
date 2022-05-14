@@ -104,8 +104,6 @@ public:
 		}
 	}
 	void executePrint() {
-		//onlineLibrary.printLibrary();
+		onlineLibrary.printLibrary();
 	}
-	//EXECURE SORT BY 4 DIFFERENT TYPES
-	//EXECUTE FINDBOOK
 };

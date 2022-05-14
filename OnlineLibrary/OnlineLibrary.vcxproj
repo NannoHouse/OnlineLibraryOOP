@@ -143,7 +143,6 @@
     <ClCompile Include="Library.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="String.cpp" />
-    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
@@ -152,7 +151,6 @@
     <ClInclude Include="Library.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="String.h" />
-    <ClInclude Include="User.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

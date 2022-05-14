@@ -22,7 +22,7 @@ void Library::remove(String searchHeader, String searchAuthor, long long isbn)
 	}
 }
 
-void Library::findBookByHeader(String givenHeader) 
+void Library::findBookByHeader(String& givenHeader) 
 {
 	unsigned size = library.getSize();
 	for (unsigned i = 0; i < size; i++)
@@ -34,7 +34,7 @@ void Library::findBookByHeader(String givenHeader)
 	}
 }
 
-void Library::findBookByAuthor(String givenAutor)
+void Library::findBookByAuthor(String& givenAutor)
 {
 	unsigned size = library.getSize();
 	for (unsigned i = 0; i < size; i++)
@@ -46,7 +46,7 @@ void Library::findBookByAuthor(String givenAutor)
 	}
 }
 
-void Library::findBookByISBN(unsigned long long ISBN)
+void Library::findBookByISBN(unsigned long long& ISBN)
 {
 		unsigned size = library.getSize();
 		for (unsigned i = 0; i < size; i++)
@@ -58,7 +58,7 @@ void Library::findBookByISBN(unsigned long long ISBN)
 		}
 }
 
-void Library::findBookByShortDescription(String description)
+void Library::findBookByShortDescription(String& description)
 {		unsigned size = library.getSize();
 		for (unsigned i = 0; i < size; i++)
 		{

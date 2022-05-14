@@ -6,12 +6,39 @@ class Program {
 private:
 	Library onlineLibrary;
 public:
-	Library& getLibrary()  {
-		return onlineLibrary;
-	}
 	void start()
 	{
-
+		std::ifstream in;
+		in.open("libraryStorage.txt");
+		if (in)
+		{
+			int size;
+			Book book;
+			String imput;
+			double number;
+			unsigned long long isdb;
+			in >> size;
+			in.ignore();
+			for (int i = 0; i < size; i++)
+			{
+				in >> imput;
+				book.setAuthor(imput);
+				in >> imput;
+				book.setHeader(imput);
+				in >> imput;
+				book.setShortDescription(imput);
+				in >> number;
+				book.setRating(number);
+				in >> isdb;
+				book.setISBN(isdb);
+				in.ignore();
+				onlineLibrary.add(book);
+			}
+		}
+		else {
+			std::cout << "Error at opening file\n";
+		}
+		in.close();
 		std::cout << "We're ver the files\n";
 	}
 	void executeAdd() {
@@ -108,12 +135,13 @@ public:
 	void executePrint() {
 		onlineLibrary.printLibrary();
 	}
-	void Save(Library& onlineLibrary) {
+	void Save() {
 		std::ofstream out;
 		out.open("libraryStorage.txt");
 		if (out)
 		{
 			int size = onlineLibrary.getSize();
+			out << size<<std::endl;
 			for (int i = 0; i < size; i++)
 			{
 				out << onlineLibrary.getBookAtIndex(i);

@@ -10,7 +10,7 @@ Book::Book() {
 	ISBN = 0;
 
 }
-Book::Book(String _autor, String _header, String _shortDescr, double _rating, int _ISBN)
+Book::Book(String _autor, String _header, String _shortDescr, double _rating, unsigned long long _ISBN)
 {
 	counter++;
 	autor = _autor;
@@ -46,9 +46,34 @@ double Book::getRating() const
 	return rating;
 }
 
-long long Book::getISBN() const
+unsigned long long Book::getISBN() const
 {
 	return ISBN;
+}
+
+void Book::setAuthor(String _author)
+{
+	autor = _author;
+}
+
+void Book::setHeader(String _header)
+{
+	header = _header;
+}
+
+void Book::setShortDescription(String _shortDescr)
+{
+	shortDescr = _shortDescr;
+}
+
+void Book::setRating(double _rating)
+{
+	rating = _rating;
+}
+
+void Book::setISBN(unsigned long long _ISBN)
+{
+	ISBN = _ISBN;
 }
 
 void Book::validateRating(double numberRating)
@@ -100,7 +125,7 @@ bool Book::operator==(const Book& rightBook) const
 
 std::istream& operator>>(std::istream& in, Book& book)
 {
-	in.ignore();
+	//in.ignore();
 	std::cout << "Enter book autor : ";
 	in >> book.autor;
 	std::cout << "Enter book header : ";
@@ -119,7 +144,6 @@ std::istream& operator>>(std::istream& in, Book& book)
 
 std::ostream& operator<<(std::ostream& out, const Book& book)
 {
-	out << '\n';
 	out << book.autor<<std::endl;
 	out << book.header << std::endl;
 	out << book.shortDescr << std::endl;

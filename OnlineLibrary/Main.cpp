@@ -32,7 +32,7 @@ int main() {
 				program.executeAdd();
 			}
 			else {
-				std::cout << "You don't have the rights to use this functions\n";
+				std::cout << "\nYou don't have the rights to use this functions\n";
 			} break;
 		case RemoveBook:
 			input = enterPassword();
@@ -41,17 +41,17 @@ int main() {
 				program.executeRemoveBook();
 			}
 			else {
-				std::cout << "You don't have the rights to use this functions\n";
+				std::cout << "\nYou don't have the rights to use this functions\n";
 			}
 			break;
 		case SortLibrary:
 			program.executeSort();
 			break;
 		case help: CommandHelper::printCommands(); break;
-		case notFound: std::cout << "Command not found, try again\n"; break;
+		case notFound: std::cout << "\nCommand not found, try again\n"; break;
 		}
 	} while (commandNumber != endProgram);
-	program.Save(program.getLibrary());
+	program.Save();
 	return 0;
 
 }
@@ -64,6 +64,7 @@ String enterPassword() {
 		printf("*");
 	}
 	psw[6] = '\0';
+	std::cin.ignore();
 	return psw;
 }
 bool verify(String& password) {

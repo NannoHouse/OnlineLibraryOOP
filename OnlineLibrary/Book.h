@@ -8,16 +8,23 @@ private:
 	String shortDescr;
 	String filePlacement;
 	double rating;
-	long long ISBN;
+	unsigned long long ISBN;
 public:
 	Book();
-	Book( String _autor, String _header, String _shortDescr,double _rating, int _ISBN);
+	Book( String _autor, String _header, String _shortDescr,double _rating, unsigned long long _ISBN);
 	String getAuthor()const;
 	String getHeader()const;
 	String getShortDescription()const;
 	String getFilePlacement()const;
 	double getRating()const;
-	long long getISBN()const;
+	unsigned long long getISBN()const;
+	void setAuthor(String _author);
+	void setHeader(String _header);
+	void setShortDescription(String _shortDescr);
+	void setRating(double _rating);
+	void setISBN(unsigned long long _ISBN);
+
+
 
 	void validateRating(double numberRating);
 	void validateISBN(unsigned enteredISBN);

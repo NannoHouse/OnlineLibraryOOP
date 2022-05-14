@@ -4,17 +4,12 @@ class String {
 	// mysting class
 private:
 	char* myString;
-	//void copy(const String& other);
-	//void erase();
-
 public:
 	// big_4
 	String();
 	String(const char* word);
 	String(const String& other);
-
 	String& operator =(const String& other);
-
 	~String();
 
 	// functions - add, getlength
@@ -23,6 +18,8 @@ public:
 	void add(const char* str);
 	const char* getSymbols() const;
 	bool contains( const String& segment)const;
+	String toLower();
+
 
 	// bool operators
 	bool operator<(const String& string) const;
@@ -34,4 +31,5 @@ public:
 	friend std::istream& operator >> (std::istream& in, String& str);
 
 };
+char toLower(char symbol);
 

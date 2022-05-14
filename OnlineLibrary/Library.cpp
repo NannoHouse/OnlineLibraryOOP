@@ -37,7 +37,7 @@ void Library::findBookByHeader(String& givenHeader)
 	unsigned size = library.getSize();
 	for (unsigned i = 0; i < size; i++)
 	{
-		if (library.at(i).getHeader() == givenHeader)
+		if (library.at(i).getHeader().toLower() == givenHeader.toLower())
 		{
 			std::cout << library.at(i);
 		}

@@ -50,7 +50,7 @@ size_t String::getSize() const
 	}
 	else
 		return 0;
-} // not needed if we use strlen
+}
 
 void String::print() const
 {
@@ -82,6 +82,16 @@ bool String::contains( const String& segment) const
 	else {
 		return false;
 	}
+}
+
+String String::toLower()
+{
+	int i = 0;
+	while (myString[i]!= '\0')
+	{
+		makeLowerCase(myString[i]);
+	}
+	return myString;
 }
 
 bool String::operator<(const String& string) const
@@ -131,4 +141,12 @@ std::istream& operator>>(std::istream& in, String& str)
 	strcpy_s(str.myString, strlen(buffer) + 1, buffer);
 	delete[] buffer;
 	return in;
+}
+
+char makeLowerCase(char symbol)
+{
+		if (symbol >= 'A' && symbol <= 'Z')
+			return symbol + ('a' - 'A');
+
+		return symbol;
 }

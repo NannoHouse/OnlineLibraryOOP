@@ -6,7 +6,6 @@ private:
 	String autor;
 	String header;
 	String shortDescr;
-	String filePlacement;
 	double rating;
 	unsigned long long ISBN;
 public:
@@ -24,10 +23,10 @@ public:
 	void setRating(double _rating);
 	void setISBN(unsigned long long _ISBN);
 
-
-
+private:
 	void validateRating(double numberRating);
-	void validateISBN(unsigned enteredISBN);
+	void validateISBN(unsigned long long enteredISBN);
+public:
 	Book& operator =(const Book& other);
 	bool operator==(const Book& rightBook) const;
 

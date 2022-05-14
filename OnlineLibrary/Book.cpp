@@ -16,8 +16,10 @@ Book::Book(String _autor, String _header, String _shortDescr, double _rating, un
 	autor = _autor;
 	header = _header;
 	shortDescr = _shortDescr;
-	validateRating(_rating);
-	validateISBN(_ISBN);
+	rating = _rating;
+	ISBN = _ISBN;
+	//validateRating(_rating);
+	//validateISBN(_ISBN);
 
 }
 
@@ -68,12 +70,12 @@ void Book::setShortDescription(String _shortDescr)
 
 void Book::setRating(double _rating)
 {
-	rating = _rating;
+	validateRating(_rating);
 }
 
 void Book::setISBN(unsigned long long _ISBN)
 {
-	ISBN = _ISBN;
+	validateISBN(_ISBN);
 }
 
 void Book::validateRating(double numberRating)
@@ -91,7 +93,7 @@ void Book::validateRating(double numberRating)
 	}
 }
 
-void Book::validateISBN(unsigned enteredISBN)
+void Book::validateISBN(unsigned long long enteredISBN)
 {
 	if (enteredISBN < 0)
 	{
@@ -151,5 +153,14 @@ std::ostream& operator<<(std::ostream& out, const Book& book)
 	
 	out << book.ISBN << std::endl;
 	return out;
+}
+
+void test(double numberRating)
+{
+}
+
+bool test1()
+{
+	return false;
 }
 

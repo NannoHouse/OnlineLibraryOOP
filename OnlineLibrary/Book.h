@@ -22,9 +22,6 @@ public:
 	void setRating(double _rating);
 	void setISBN(unsigned long long _ISBN);
 
-private:
-	void validateRating(double numberRating);
-	void validateISBN(unsigned long long enteredISBN);
 public:
 	Book& operator =(const Book& other);
 	bool operator==(const Book& rightBook) const;

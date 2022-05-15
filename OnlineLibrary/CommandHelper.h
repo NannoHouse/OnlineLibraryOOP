@@ -47,5 +47,5 @@ int CommandHelper::getCommand(const char* command)
 }
 
 void CommandHelper::printCommands() {
-	std::cout << "1.Add - adds a book\n2.Remove a book\n3.Sort Books\n4.FindBook \n5. Exit\n6. Help\3\n"; 
+	std::cout << "1.Add - adds a book\n2.Remove a book\n3.SortBooks\n4.FindBook \n5. Exit\n6. Help\3\n"; 
 }

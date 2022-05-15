@@ -1,9 +1,6 @@
 #include<stdio.h>
 #include <conio.h>
-#include <string>
-#include "String.h"
 #include "Program.h"
-#include "Library.h"
 #include "CommandHelper.h"
 String enterPassword();
 bool verify(String& password);

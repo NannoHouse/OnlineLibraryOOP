@@ -4,8 +4,8 @@ template<class T>
 class Vector
 {
 private:
-    size_t vsize;
-    size_t vcapacity;
+    unsigned int vsize;
+    unsigned int vcapacity;
     T* varr;
 
     // Helper methods used in the big four
@@ -23,7 +23,7 @@ public:
     T& at(int index); 
     void add(const T& element);
     void remove(int index); // redo removing method
-    void resize(size_t capacity);
+    void resize(unsigned int capacity);
 
 };
 
@@ -118,7 +118,7 @@ template<class T>
 }
 
 template<class T>
- void Vector<T>::resize(size_t capacity)
+ void Vector<T>::resize(unsigned int capacity)
 {
     T* new_size_array = new T[capacity];
     for (unsigned i = 0; i < vcapacity; i++)

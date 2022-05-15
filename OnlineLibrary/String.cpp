@@ -40,7 +40,7 @@ String::~String()
 	delete[] myString;
 }
 
-size_t String::getSize() const
+int String::getSize() const
 {
 	if (myString)
 	{

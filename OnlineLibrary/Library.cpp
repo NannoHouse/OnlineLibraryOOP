@@ -10,7 +10,7 @@ void Library::add(Book& book)
 
 void Library::remove(String& searchHeader, String &searchAuthor, long long& isbn)
 {	
-	unsigned size = library.getSize();
+	unsigned int size = library.getSize();
 	for (unsigned i = 0; i < size; i++)
 	{
 		if (library.at(i).getHeader() == searchHeader && library.at(i).getAuthor() == searchAuthor && library.at(i).getISBN() == isbn)

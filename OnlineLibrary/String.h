@@ -13,7 +13,7 @@ public:
 	~String();
 
 	// functions
-	size_t getSize() const;
+	int getSize() const;
 	void print() const;
 	void add(const char* str);
 	const char* getSymbols() const;

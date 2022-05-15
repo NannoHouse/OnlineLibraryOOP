@@ -39,7 +39,7 @@ public:
 			std::cout << "Error at opening file\n";
 		}
 		in.close();
-		std::cout << "We're ver the files\n";
+		std::cout << "We're read the files successfully!\n";
 	}
 	void executeAdd() {
 		Book newBook;
@@ -51,7 +51,7 @@ public:
 		std::cout << "Added!" << std::endl;
 		}
 		else {
-			std::cout << "This isbn Already exists! \nYour book won't be added!\n";
+			std::cout << "\nThis isbn Already exists! \nYour book won't be added!\n";
 		}
 	}
 	void executeRemoveBook() {

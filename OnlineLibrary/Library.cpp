@@ -96,8 +96,8 @@ void Library::sortDescending()
 	for (size_t i = 0; i < size/2; i++)
 	{
 		temp = library.at(i);
-		library.at(i) = library.at(size - i);
-		library.at(size - i) = temp;
+		library.at(i) = library.at(size - i-1);
+		library.at(size - i-1) = temp;
 	}
 }
 

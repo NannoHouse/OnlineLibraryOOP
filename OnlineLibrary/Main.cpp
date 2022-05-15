@@ -47,6 +47,9 @@ int main() {
 		case SortLibrary:
 			program.executeSort();
 			break;
+		case print:
+			program.executePrint();
+			break;
 		case help: CommandHelper::printCommands(); break;
 		case notFound: std::cout << "\nCommand not found, try again\n"; break;
 		}

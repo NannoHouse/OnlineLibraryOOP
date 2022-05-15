@@ -7,6 +7,7 @@ const int SortLibrary = 3;
 const int FindBook = 4;
 const int endProgram = 5;
 const int help = 6;
+const int print = 7;
 const int notFound = 0;
 class CommandHelper {
 public:
@@ -39,6 +40,10 @@ int CommandHelper::getCommand(const char* command)
 	else if (strcmp(command, "help") == 0)
 	{
 		return help;
+	}
+	else if (strcmp(command, "print") == 0)
+	{
+		return print;
 	}
 	else
 	{
